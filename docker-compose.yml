@@ -48,6 +48,10 @@ services:
       - 9001:9001
   hue:
     image: bde2020/hdfs-filebrowser:3.11
+    depends_on: 
+      - namenode
+    env_file:
+      - ./hadoop.env
     ports:
       - 8088:8088
     environment:
